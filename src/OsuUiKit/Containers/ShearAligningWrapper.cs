@@ -12,6 +12,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Primitives;
 using osu.Framework.Layout;
+using osu.Game;
 using osuTK;
 
 namespace OsuUiKit.Containers

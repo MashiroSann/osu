@@ -18,6 +18,7 @@ using osu.Framework.Input.Handlers.Tablet;
 using osu.Framework.Layout;
 using osu.Framework.Platform;
 using osu.Framework.Screens;
+using osu.Game;
 using osu.Game.Configuration;
 using osu.Game.Screens;
 using osu.Game.Screens.Backgrounds;

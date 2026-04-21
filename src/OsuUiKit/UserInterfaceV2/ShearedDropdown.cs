@@ -21,6 +21,7 @@ using osu.Framework.Input.Events;
 using osu.Framework.Localisation;
 using OsuUiKit.Sprites;
 using OsuUiKit.UserInterface;
+using osu.Game;
 using osu.Game.Input.Bindings;
 using osu.Game.Overlays;
 using osuTK;
