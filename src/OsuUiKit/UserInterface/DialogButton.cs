@@ -22,6 +22,7 @@ using osu.Framework.Localisation;
 using OsuUiKit.Backgrounds;
 using OsuUiKit.Containers;
 using OsuUiKit.Sprites;
+using osu.Game;
 using osuTK;
 using osuTK.Graphics;
 

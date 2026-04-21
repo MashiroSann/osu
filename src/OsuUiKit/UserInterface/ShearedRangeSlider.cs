@@ -19,6 +19,7 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.Input.Events;
 using osu.Framework.Localisation;
 using OsuUiKit.Sprites;
+using osu.Game;
 using osu.Game.Overlays;
 using osuTK;
 using osuTK.Graphics;

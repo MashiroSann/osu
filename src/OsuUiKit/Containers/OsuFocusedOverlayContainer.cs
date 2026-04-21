@@ -16,6 +16,7 @@ using osu.Framework.Graphics.Containers;
 using osuTK;
 using osu.Framework.Input.Bindings;
 using osu.Framework.Input.Events;
+using osu.Game;
 using osu.Game.Audio;
 using osu.Game.Input.Bindings;
 using osu.Game.Overlays;
@@ -38,8 +39,8 @@ namespace OsuUiKit.Containers
         /// </summary>
         protected virtual bool DimMainContent => true;
 
-        [Resolved]
-        private IOverlayManager? overlayManager { get; set; }
+        [Resolved(canBeNull: true)]
+        private OsuGame? overlayHostGame { get; set; }
 
         [Resolved]
         private PreviewTrackManager previewTrackManager { get; set; } = null!;
@@ -59,8 +60,8 @@ namespace OsuUiKit.Containers
 
         protected override void LoadComplete()
         {
-            if (overlayManager != null)
-                OverlayActivationMode.BindTo(overlayManager.OverlayActivationMode);
+            if (overlayHostGame != null)
+                OverlayActivationMode.BindTo(overlayHostGame.OverlayActivationMode);
 
             OverlayActivationMode.BindValueChanged(mode =>
             {
@@ -148,7 +149,6 @@ namespace OsuUiKit.Containers
                         samplePopIn.Play();
                     }
 
-                    if (BlockScreenWideMouse && DimMainContent) overlayManager?.ShowBlockingOverlay(this);
                     break;
 
                 case Visibility.Hidden:
@@ -158,7 +158,6 @@ namespace OsuUiKit.Containers
                         samplePopOut.Play();
                     }
 
-                    if (BlockScreenWideMouse) overlayManager?.HideBlockingOverlay(this);
                     break;
             }
 
@@ -173,7 +172,8 @@ namespace OsuUiKit.Containers
         protected override void Dispose(bool isDisposing)
         {
             base.Dispose(isDisposing);
-            overlayManager?.HideBlockingOverlay(this);
+            // No explicit blocking overlay manager interaction here:
+            // this extracted library does not depend on osu.Game internal IOverlayManager.
         }
     }
 }

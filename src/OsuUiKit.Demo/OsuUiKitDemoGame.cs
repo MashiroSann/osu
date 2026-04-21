@@ -3,6 +3,8 @@
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using OsuUiKit;
+using OsuUiKit.Sprites;
 using osuTK.Graphics;
 
 namespace OsuUiKit.Demo
@@ -39,16 +41,16 @@ namespace OsuUiKit.Demo
                     Spacing = new osuTK.Vector2(0, 16),
                     Children = new Drawable[]
                     {
-                        new osu.Framework.Graphics.Sprites.SpriteText
+                        new OsuSpriteText
                         {
                             Text = "OsuUiKit Component Gallery",
-                            Font = new osu.Framework.Graphics.Sprites.FontUsage("Torus", 28, "Bold"),
+                            Font = OsuFont.GetFont(size: 28, weight: FontWeight.Bold),
                             Colour = Color4.White,
                         },
-                        new osu.Framework.Graphics.Sprites.SpriteText
+                        new OsuSpriteText
                         {
                             Text = "Add OsuUiKit components here to preview them.",
-                            Font = new osu.Framework.Graphics.Sprites.FontUsage("Torus", 16),
+                            Font = OsuFont.GetFont(size: 16),
                             Colour = new Color4(0.7f, 0.7f, 0.7f, 1f),
                         },
                     }

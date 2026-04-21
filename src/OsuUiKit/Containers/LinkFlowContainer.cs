@@ -21,6 +21,7 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Localisation;
 using osu.Framework.Logging;
 using osu.Framework.Platform;
+using osu.Game;
 using osu.Game.Online;
 using osu.Game.Users;
 using osu.Game.Localisation;

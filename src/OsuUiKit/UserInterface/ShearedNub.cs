@@ -18,6 +18,7 @@ using osu.Framework.Graphics.Effects;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.UserInterface;
 using osu.Framework.Input.Events;
+using osu.Game;
 using osu.Game.Overlays;
 using osuTK;
 using osuTK.Graphics;
