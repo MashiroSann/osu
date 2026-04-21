@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>OsuUiKit</AssemblyName>
+    <RootNamespace>OsuUiKit</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Core osu! rendering framework -->
+    <PackageReference Include="ppy.osu.Framework" Version="2026.416.0" />
+    <!-- Game resource fonts and icons (MIT-compatible portion only) -->
+    <PackageReference Include="ppy.osu.Game.Resources" Version="2026.420.0" />
+    <PackageReference Include="osuTK" Version="1.0.0.34" />
+  </ItemGroup>
+</Project>
