@@ -10,8 +10,9 @@
   <ItemGroup>
     <!-- Core osu! rendering framework -->
     <PackageReference Include="ppy.osu.Framework" Version="2026.416.0" />
+    <!-- osu! game layer types used by extracted controls (Overlays/Input/Localisation/etc.) -->
+    <PackageReference Include="ppy.osu.Game" Version="2026.408.0" />
     <!-- Game resource fonts and icons (MIT-compatible portion only) -->
     <PackageReference Include="ppy.osu.Game.Resources" Version="2026.420.0" />
-    <PackageReference Include="osuTK" Version="1.0.0.34" />
   </ItemGroup>
 </Project>
