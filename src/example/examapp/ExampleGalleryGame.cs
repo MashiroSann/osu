@@ -17,6 +17,9 @@ namespace OsuUiKit.ExamApp;
 public partial class ExampleGalleryGame : osu.Framework.Game
 {
     private const float left_column_width = 420;
+    // Matches markdown table cells formatted like: | `Namespace.TypeName` |
+    private const string readme_type_cell_pattern = "\\|\\s*`([^`]+)`\\s*\\|";
+    private static readonly Assembly[] type_lookup_assemblies = [typeof(OsuFont).Assembly, typeof(Drawable).Assembly, typeof(ExampleGalleryGame).Assembly];
 
     protected override IDictionary<FrameworkSetting, object> GetFrameworkConfigDefaults() => new Dictionary<FrameworkSetting, object>
     {
@@ -180,23 +183,33 @@ public partial class ExampleGalleryGame : osu.Framework.Game
             return [];
 
         string markdown = File.ReadAllText(readmePath);
-        var matches = Regex.Matches(markdown, "\\|\\s*`([^`]+)`\\s*\\|");
+        var matches = Regex.Matches(markdown, readme_type_cell_pattern);
 
         var names = new HashSet<string>(StringComparer.Ordinal);
         var result = new List<(string Name, Type? Type)>();
-        Assembly assembly = typeof(OsuFont).Assembly;
-
         foreach (Match match in matches)
         {
             string name = match.Groups[1].Value.Trim();
             if (!names.Add(name))
                 continue;
 
-            Type? type = assembly.GetType(name, throwOnError: false, ignoreCase: false);
+            Type? type = resolveType(name);
             result.Add((name, type));
         }
 
         return result;
+    }
+
+    private static Type? resolveType(string fullTypeName)
+    {
+        foreach (Assembly assembly in type_lookup_assemblies)
+        {
+            Type? type = assembly.GetType(fullTypeName, throwOnError: false, ignoreCase: false);
+            if (type is not null)
+                return type;
+        }
+
+        return null;
     }
 
     private static string? findExampleReadmePath()
