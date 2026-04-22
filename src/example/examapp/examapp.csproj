@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>OsuUiKit.ExamApp</AssemblyName>
+    <RootNamespace>OsuUiKit.ExamApp</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OsuUiKit\OsuUiKit.csproj" />
+    <PackageReference Include="ppy.osu.Framework" Version="2026.416.0" />
+  </ItemGroup>
+</Project>
