@@ -2,6 +2,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using osu.Framework.Allocation;
+using osu.Framework.Configuration;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
@@ -17,13 +18,11 @@ public partial class ExampleGalleryGame : osu.Framework.Game
 {
     private const float left_column_width = 420;
 
-    protected override void LoadComplete()
+    protected override IDictionary<FrameworkSetting, object> GetFrameworkConfigDefaults() => new Dictionary<FrameworkSetting, object>
     {
-        base.LoadComplete();
-
-        if (Window is not null)
-            Window.Size = new Size(1280, 720);
-    }
+        [FrameworkSetting.WindowMode] = WindowMode.Windowed,
+        [FrameworkSetting.WindowedSize] = new Size(1280, 720),
+    };
 
     [BackgroundDependencyLoader]
     private void load()
@@ -67,9 +66,10 @@ public partial class ExampleGalleryGame : osu.Framework.Game
             new Dimension(GridSizeMode.Absolute, left_column_width),
             new Dimension(),
         ],
-        Content =
-        [
-            [
+        Content = new[]
+        {
+            new Drawable[]
+            {
                 createCellBackground(new OsuSpriteText
                 {
                     Text = "控件名",
@@ -84,8 +84,8 @@ public partial class ExampleGalleryGame : osu.Framework.Game
                     Colour = Color4.White,
                     Margin = new MarginPadding(10),
                 }, new Color4(48, 51, 54, 255)),
-            ],
-        ],
+            },
+        },
     };
 
     private Drawable createRow((string Name, Type? Type) item)
@@ -101,9 +101,10 @@ public partial class ExampleGalleryGame : osu.Framework.Game
                 new Dimension(GridSizeMode.Absolute, left_column_width),
                 new Dimension(),
             ],
-            Content =
-            [
-                [
+            Content = new[]
+            {
+                new Drawable[]
+                {
                     createCellBackground(new OsuSpriteText
                     {
                         Text = item.Name,
@@ -118,8 +119,8 @@ public partial class ExampleGalleryGame : osu.Framework.Game
                         Padding = new MarginPadding(10),
                         Child = preview,
                     }),
-                ],
-            ],
+                },
+            },
         };
     }
 
@@ -183,7 +184,7 @@ public partial class ExampleGalleryGame : osu.Framework.Game
 
         var names = new HashSet<string>(StringComparer.Ordinal);
         var result = new List<(string Name, Type? Type)>();
-        Assembly assembly = typeof(OsuGame).Assembly;
+        Assembly assembly = typeof(OsuFont).Assembly;
 
         foreach (Match match in matches)
         {

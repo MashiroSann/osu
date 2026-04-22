@@ -4,6 +4,8 @@
     <OutputType>Exe</OutputType>
     <AssemblyName>OsuUiKit.ExamApp</AssemblyName>
     <RootNamespace>OsuUiKit.ExamApp</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OsuUiKit\OsuUiKit.csproj" />
