@@ -1,0 +1,23 @@
+OsuUiKit / OsuUiKit.Demo 运行依赖清单
+
+一、运行时与构建环境
+- .NET SDK 8.0.x（由 /global.json 固定为 8.0.100，允许 rollForward 到最新 feature）
+
+二、NuGet 包依赖（来自 /src/OsuUiKit/OsuUiKit.csproj 与 /src/OsuUiKit.Demo/OsuUiKit.Demo.csproj）
+- ppy.osu.Framework (2026.416.0)
+- ppy.osu.Game (2026.408.0)
+- ppy.osu.Game.Resources (2026.420.0)
+
+三、仓库内必须保留的非 /src 内容
+- /Directory.Build.props
+  - 提供通用构建属性与分析器配置引用
+- /app.manifest
+  - 由 Directory.Build.props 的 ApplicationManifest 引用
+- /CodeAnalysis/BannedSymbols.txt
+  - 由 Directory.Build.props 的 AdditionalFiles 引用
+- /CodeAnalysis/osu.globalconfig
+  - 由 Directory.Build.props 的 GlobalAnalyzerConfigFiles 引用
+- /osu.licenseheader
+  - 由 Directory.Build.props 的 None Include 引用
+- /global.json
+  - 固定 SDK 版本，确保可复现构建
