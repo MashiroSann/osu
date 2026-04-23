@@ -5,7 +5,8 @@
 ## 目录说明
 
 - `src/OsuUiKit`：控件库源码（类库）。
-- `src/OsuUiKit.Demo`：最小示例工程，可用于集成后本地验证。
+- `src/example/example`：可调用控件清单与调用示例提取工程。
+- `src/example/listapp`：可视化控件列表应用（双栏+滚轮滚动）。
 
 ## 依赖关系（已补齐）
 
@@ -37,7 +38,7 @@ dotnet build
 运行示例：
 
 ```bash
-dotnet run --project /home/runner/work/osu/osu/src/OsuUiKit.Demo/OsuUiKit.Demo.csproj
+dotnet run --project src/example/listapp/OsuUiKit.ListApp.csproj
 ```
 
 ## 详细导入与调用文档

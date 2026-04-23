@@ -1,0 +1,43 @@
+OsuUiKit /src 依赖分析
+========================
+
+一、目录内项目依赖关系
+1) OsuUiKit (类库)
+   - 路径: src/OsuUiKit/OsuUiKit.csproj
+   - 角色: 可复用 UI 组件库（供其他项目直接引用）
+
+2) 示例工程（由本次任务新增）
+   - src/example/example/OsuUiKit.Example.csproj
+   - src/example/listapp/OsuUiKit.ListApp.csproj
+   - 两者均通过 ProjectReference 引用 OsuUiKit.csproj
+
+二、OsuUiKit 包依赖（来自 OsuUiKit.csproj）
+- ppy.osu.Framework 2026.416.0
+  用途: 渲染、输入、Drawable、容器、游戏宿主等基础能力
+
+- ppy.osu.Game 2026.408.0
+  用途: 复用 osu! 游戏层中的 UI/Overlay/Input/Localisation 等类型
+
+- ppy.osu.Game.Resources 2026.420.0
+  用途: 字体、图标等资源访问
+
+三、源码命名空间依赖
+- OsuUiKit
+- OsuUiKit.Backgrounds
+- OsuUiKit.Containers
+- OsuUiKit.Containers.Markdown
+- OsuUiKit.Sprites
+- OsuUiKit.UserInterface
+- OsuUiKit.UserInterface.PageSelector
+- OsuUiKit.UserInterfaceV2
+
+以上命名空间统一依赖 osu-framework 与 osu game 相关类型。
+
+四、可移除内容结论
+- iOS/Android/Desktop 等宿主工程、规则集、测试工程、文档与脚本等，
+  均非 OsuUiKit 可复用库的直接编译依赖，可从本分支中移除。
+- src/OsuUiKit.Demo 为演示项目，不属于可复用库最小依赖集合，按要求移除。
+
+五、可导入性结论
+- 其他项目直接引用 src/OsuUiKit/OsuUiKit.csproj 即可导入 UIkit。
+- 依赖项已在 OsuUiKit.csproj 中声明，可直接 restore/build。

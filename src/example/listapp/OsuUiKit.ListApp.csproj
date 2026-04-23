@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>OsuUiKit.ListApp</AssemblyName>
+    <RootNamespace>OsuUiKit.ListApp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../OsuUiKit/OsuUiKit.csproj" />
+    <ProjectReference Include="../example/OsuUiKit.Example.csproj" />
+    <PackageReference Include="ppy.osu.Framework" Version="2026.416.0" />
+  </ItemGroup>
+</Project>
