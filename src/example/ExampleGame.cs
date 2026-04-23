@@ -16,7 +16,6 @@ using OsuUiKit.UserInterface;
 using OsuUiKit.UserInterfaceV2;
 using osuTK;
 using osuTK.Graphics;
-using osu.Game.Online;
 
 namespace example
 {
@@ -136,25 +135,25 @@ namespace example
             switch (controlName)
             {
                 case "ShearedButton":
-                    return new ShearedButton { Width = 260, Text = "ShearedButton" };
+                    return new ShearedButton { Width = 260, Text = controlName };
 
                 case "ShearedToggleButton":
-                    return new ShearedToggleButton { Width = 260, Text = "ShearedToggleButton", Active = { Value = true } };
+                    return new ShearedToggleButton { Width = 260, Text = controlName, Active = { Value = true } };
 
                 case "IconButton":
                     return new IconButton { Icon = FontAwesome.Solid.Heart };
 
                 case "DownloadButton":
-                    return new DownloadButton { State = { Value = DownloadState.NotDownloaded } };
+                    return new DownloadButton();
 
                 case "DangerousRoundedButton":
-                    return new DangerousRoundedButton { Width = 260, Text = "DangerousRoundedButton" };
+                    return new DangerousRoundedButton { Width = 260, Text = controlName };
 
                 case "RoundedButton":
-                    return new RoundedButton { Width = 260, Text = "RoundedButton" };
+                    return new RoundedButton { Width = 260, Text = controlName };
 
                 case "OsuCheckbox":
-                    return new OsuCheckbox { Width = 360, LabelText = "OsuCheckbox 示例" };
+                    return new OsuCheckbox { Width = 360, LabelText = "OsuCheckbox example" };
 
                 case "OsuTextBox":
                     return new OsuTextBox { Width = 360, PlaceholderText = "OsuTextBox" };
@@ -175,17 +174,17 @@ namespace example
                     return new SwitchButton { Current = { Value = true } };
 
                 case "FormCheckBox":
-                    return new FormCheckBox { Width = 500, Caption = "FormCheckBox", HintText = "示例开关控件" };
+                    return new FormCheckBox { Width = 500, Caption = "FormCheckBox", HintText = "Example switch control" };
 
                 case "FormTextBox":
-                    return new FormTextBox { Width = 500, Caption = "FormTextBox", PlaceholderText = "输入一些文本" };
+                    return new FormTextBox { Width = 500, Caption = "FormTextBox", PlaceholderText = "Enter some text" };
 
                 case "LabelledTextBox":
                     return new LabelledTextBox
                     {
                         Width = 500,
                         Label = "LabelledTextBox",
-                        PlaceholderText = "请输入内容",
+                        PlaceholderText = "Enter content",
                     };
 
                 case "LabelledSwitchButton":
@@ -195,14 +194,15 @@ namespace example
                         Label = "LabelledSwitchButton",
                         Current = { Value = true },
                     };
-            }
 
-            return new OsuSpriteText
-            {
-                Text = $"未实现: {controlName}",
-                Font = OsuFont.GetFont(size: 16),
-                Colour = new Color4(255, 140, 140, 255),
-            };
+                default:
+                    return new OsuSpriteText
+                    {
+                        Text = $"Not implemented: {controlName}",
+                        Font = OsuFont.GetFont(size: 16),
+                        Colour = new Color4(255, 140, 140, 255),
+                    };
+            }
         }
 
         private static IReadOnlyList<string> loadControlNames()
