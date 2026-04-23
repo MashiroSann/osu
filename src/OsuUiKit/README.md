@@ -5,8 +5,8 @@
 ## 目录说明
 
 - `src/OsuUiKit`：控件库源码（类库）。
-- `src/example/example`：可调用控件清单与调用示例提取工程。
-- `src/example/listapp`：可视化控件列表应用（双栏+滚轮滚动）。
+- `List.md`：可调用控件清单（控件名、调用方式、命名空间）。
+- `使用说明.md`：导入与使用说明。
 
 ## 依赖关系（已补齐）
 
@@ -33,14 +33,7 @@ dotnet restore
 dotnet build
 ```
 
-## 示例工程
+## 详细文档
 
-运行示例：
-
-```bash
-dotnet run --project src/example/listapp/OsuUiKit.ListApp.csproj
-```
-
-## 详细导入与调用文档
-
-请阅读：[`导入与调用控件.md`](./导入与调用控件.md)
+- 仓库根目录：[`使用说明.md`](../../使用说明.md)
+- 仓库根目录：[`List.md`](../../List.md)
