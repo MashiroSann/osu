@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using osu.Framework.Allocation;
@@ -6,6 +8,7 @@ using osu.Framework.Configuration;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.UserInterface;
 using OsuUiKit;
 using OsuUiKit.Sprites;
@@ -210,7 +213,7 @@ namespace example
 
             List<string> controls = File.ReadLines(listFile)
                                         .Select(l => l.Trim())
-                                        .Where(l => l.StartsWith("- "))
+                                        .Where(l => l.StartsWith("- ", StringComparison.Ordinal))
                                         .Select(l => l[2..].Trim())
                                         .Where(l => !string.IsNullOrWhiteSpace(l))
                                         .ToList();
